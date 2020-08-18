@@ -12,13 +12,13 @@ const buttonStyles = {
   letterSpacing: "1.5px",
 }
 
-const stripePromise = loadStripe("pk_test_")
+const stripePromise = loadStripe("process.env.GATSBY_STRIPE_PUBLISHABLE_KEY")
 
 const redirectToCheckout = async event => {
   event.preventDefault()
   const stripe = await stripePromise
   const { error } = await stripe.redirectToCheckout({
-    lineItems: [{ price: "price_", quantity: 1 }],
+    lineItems: [{ price: "price_1HHIUHGJik2aBiUWmj8khuLC", quantity: 1 }],
     mode: "payment",
     successUrl: `http://localhost:8000/page-2`,
     cancelUrl: `http://localhost:8000/`,
